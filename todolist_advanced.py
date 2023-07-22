@@ -8,6 +8,9 @@
 import tkinter as tk
 from tkinter import messagebox
 
+# Initialize an empty list to store tasks
+tasks_list = []
+
 #-------------------------------- FUNCTIONS --------------------------------------
 
 # Adds a new task to the list
@@ -88,11 +91,11 @@ def move_task_up():
     except IndexError:
         pass
 
-# MOves teh task down by one.
+# Moves the task down by one
 def move_task_down():
     try:
         index = task_list.curselection()[0]
-        if index < len(task_list) - 1:
+        if index < len(tasks_list) - 1:
             task_details = task_list.get(index)
             task_list.delete(index)
             task_list.insert(index + 1, task_details)
@@ -104,7 +107,7 @@ def move_task_down():
 # Shows an "About" page in a pop up window.
 def show_about_page():
     about_text = '''                 To-Do-List Application 
-    \n                 Created By: ###### OMITTED FOR ONLINE SECURITY PURPOSES ###### 
+    \n                 Created By: ###### OMITTED FOR ONLINE SECURITY PURPOSES ######
     \n                 Version: Advanced 1.5
     \nInstructions: 
     \nStep 1: Enter your task in the white box next to "Task:" 
@@ -114,7 +117,7 @@ def show_about_page():
     \n                 To Delete/Mark as complete: 
     \nSelect your task in the box after adding it, and click the button.
     \n                 To Edit: 
-    \nSelect your task and click "Edit Task", then the information will be dragged back into the task, priority, and due date sections. Edit them there.
+    \nSelect your task and click "Edit Task", then the information will be dragged back into the task, priority, and due date sections. Edit them there, then push "Add Task" again.
     \n                
     \nTo see this message without constantly clicking, go to https://github.com/Etzerlume/To-Do-List_pytkinter/blob/main/README.md.
     '''
@@ -192,7 +195,7 @@ btn_complete.grid(row=3, column=2, padx=5, pady=5)
 btn_move_up = tk.Button(frame_tasks, text="Move Task Up", width=15, command=move_task_up)
 btn_move_up.grid(row=1, column=3, padx=5, pady=5)
 
-btn_move_down = tk.Button(frame_tasks, text="Move Task Down", width=15, command=move_task_down)
+btn_move_down = tk.Button(frame_tasks, text="Move Down", width=15, command=lambda: move_task_down())
 btn_move_down.grid(row=2, column=3, padx=5, pady=5)
 
 #-------------------------------- ABOUT PAGE --------------------------------------
