@@ -75,21 +75,47 @@ def extract_task_details(task_details):
     due_date = parts[2].strip()[11:]
     return task, priority, due_date
 
+# Moves the task up by one.
+def move_task_up():
+    try:
+        index = task_list.curselection()[0]
+        if index > 0:
+            task_details = task_list.get(index)
+            task_list.delete(index)
+            task_list.insert(index - 1, task_details)
+            task_list.selection_clear(0, tk.END)
+            task_list.selection_set(index - 1)
+    except IndexError:
+        pass
+
+# MOves teh task down by one.
+def move_task_down():
+    try:
+        index = task_list.curselection()[0]
+        if index < len(task_list) - 1:
+            task_details = task_list.get(index)
+            task_list.delete(index)
+            task_list.insert(index + 1, task_details)
+            task_list.selection_clear(0, tk.END)
+            task_list.selection_set(index + 1)
+    except IndexError:
+        pass
+
 # Shows an "About" page in a pop up window.
 def show_about_page():
     about_text = '''                 To-Do-List Application 
-    \n                 Created By: ###### OMITTED FOR ONLINE SECURITY PURPOSES ######
+    \n                 Created By: ###### OMITTED FOR ONLINE SECURITY PURPOSES ###### 
     \n                 Version: Advanced 1.5
     \nInstructions: 
     \nStep 1: Enter your task in the white box next to "Task:" 
     \nStep 2: Select a priority from the drop-down menu.
     \nStep 3: Enter a due date. Any input is allowed, though it is recommended to use a standard date format for ease of use.
-    \nStep 4: Click "Add Task."
+    \nStep 4: Click "Add Task." You can now move your task up or down by selecting it and clicking "Move Task Up/Down"
     \n                 To Delete/Mark as complete: 
     \nSelect your task in the box after adding it, and click the button.
     \n                 To Edit: 
     \nSelect your task and click "Edit Task", then the information will be dragged back into the task, priority, and due date sections. Edit them there.
-    \n
+    \n                
     \nTo see this message without constantly clicking, go to https://github.com/Etzerlume/To-Do-List_pytkinter/blob/main/README.md.
     '''
     messagebox.showinfo("About", about_text)
@@ -163,12 +189,18 @@ btn_delete.grid(row=2, column=2, padx=5, pady=5)
 btn_complete = tk.Button(frame_tasks, text="Mark as Completed", width=15, command=mark_as_completed)
 btn_complete.grid(row=3, column=2, padx=5, pady=5)
 
+btn_move_up = tk.Button(frame_tasks, text="Move Task Up", width=15, command=move_task_up)
+btn_move_up.grid(row=1, column=3, padx=5, pady=5)
+
+btn_move_down = tk.Button(frame_tasks, text="Move Task Down", width=15, command=move_task_down)
+btn_move_down.grid(row=2, column=3, padx=5, pady=5)
+
 #-------------------------------- ABOUT PAGE --------------------------------------
 
 frame_about = tk.Frame(app)
 frame_about.pack(pady=5)
 
-btn_about = tk.Button(frame_about, text="About", width=10, command=show_about_page)
+btn_about = tk.Button(frame_about, text="About / Instructions", width=17, command=show_about_page)
 btn_about.pack()
 
 #-------------------------------- MAIN LOOP --------------------------------------
