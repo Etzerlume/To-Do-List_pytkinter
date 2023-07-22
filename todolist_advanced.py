@@ -1,7 +1,5 @@
 #======================================================================================================================
-# Programmer: Jaydon Thompson
-# Program: 4
-# Date: 7/22/2023
+# Programmer: ###### OMITTED FOR ONLINE SECURITY PURPOSES ######
 # Description: Creates a basic GUI application to show a to-do-list where users can add, edit, and delete tasks.
 #======================================================================================================================
 
