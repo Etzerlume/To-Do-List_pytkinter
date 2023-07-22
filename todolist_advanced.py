@@ -80,7 +80,7 @@ def extract_task_details(task_details):
 # Shows an "About" page in a pop up window.
 def show_about_page():
     about_text = '''                 To-Do-List Application 
-    \n                 Created By: Jaydon Thompson 
+    \n                 Created By: ###### OMITTED FOR ONLINE SECURITY PURPOSES ######
     \n                 Version: Advanced 1.5
     \nInstructions: 
     \nStep 1: Enter your task in the white box next to "Task:" 
