@@ -12,4 +12,4 @@ To Delete/Mark as complete:
 Select your task in the box after adding it, and click the button.
 
 To Edit: 
-Select your task and click "Edit Task", then the information will be dragged back into the task, priority, and due date sections. Edit them there.
+Select your task and click "Edit Task", then the information will be dragged back into the task, priority, and due date sections. Edit them there, then push "Add Task" again.
