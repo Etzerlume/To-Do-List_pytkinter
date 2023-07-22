@@ -6,7 +6,7 @@ Step 2: Select a priority from the drop-down menu.
 
 Step 3: Enter a due date. Any input is allowed, though it is recommended to use a standard date format for ease of use.
 
-Step 4: Click "Add Task."
+Step 4: Click "Add Task." You can now move your task up or down by selecting it and clicking "Move Task Up/Down"
 
 To Delete/Mark as complete: 
 Select your task in the box after adding it, and click the button.
